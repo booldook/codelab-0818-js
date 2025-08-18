@@ -9,9 +9,18 @@ document == body : Brower의 표현영역
 alert, confirm, prompt등 window객체가 가지고 있는 함수를 내장함수라 한다.
 
 - 언어
-  - 변수, 함수, 제어, 반복
+  - 변수, 함수, 제어(if, switch), 반복
 */
-alert("Hello World");
-console.log("Hello World");
-var userName = prompt("너의 이름은?");
-confirm("당신의 이름은 " + userName + " 입니까?");
+function init() {
+  // alert("Hello World");
+  // console.log("Hello World");
+  var userName = prompt("너의 이름은?");
+  var isYourName = confirm("당신의 이름은 " + userName + " 입니까?");
+  if (isYourName) {
+    document.title = userName;
+    document.getElementById("userName").innerText = userName;
+  } else {
+    init();
+  }
+  console.log("init end")
+} 

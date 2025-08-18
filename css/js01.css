@@ -10,3 +10,7 @@ button {
   background-color: gray;
   color: white;
 }
+.containers > .name-wrap {
+  font-size: 2em;
+  margin: 1em 0;
+}
