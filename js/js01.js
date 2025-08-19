@@ -48,7 +48,7 @@ function loop() {
 - 함수선언문, 함수표현식, 호이스팅
 - 배열, 배열메서드
 - 객체, 객체메서드
-- prototype
+- prototype(class)
 - DOM 핸들링
 - jQuery
 0820~22
