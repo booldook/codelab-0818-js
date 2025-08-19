@@ -3,7 +3,7 @@
 - 변수: 변하는 값 (var, let)
 - 상수: 변하지 않는 값 (const)
 - 데이터 타입: primitive type(원시타입), reference type(참조타입)
-  - 원시타입: char(문자), string(문자열), number(숫자), undefined
+  - 원시타입: char(문자), string(문자열), number(숫자), undefined, Infinity, NaN
   - 참조타입: Array(배열), Object(객체), null(빈값), Set, Map, function ...
 */
 
@@ -17,6 +17,9 @@
 // 원시타입과 참조타입 확인하기
 var c = "ABC"; // primitive
 var d = [1, 2, 3]; // 배열: 데이터의 집합 reference type
+
+// 산술연산자 + - * / %
+// 논리연산자(boolean 연산) || (논리합, 거나, or), && (논리곱, 그리고, and)
 
 console.log(d);
 console.log(d[0]);
@@ -80,25 +83,53 @@ function calc() {
     return false;
   }
   if (b === "") {
-    alert("값2을 입력하세요.");
+    alert("값2을 입력하세요");
     frm.b.focus();
     return false;
   }
-  if (oper === "sum") {
-    result = Number(a) + Number(b);
-  } else if (oper === "min") {
-    result = Number(a) - Number(b);
-  } else if (oper === "mul") {
-    result = Number(a) * Number(b);
-  } else if (oper === "div") {
-    result = Number(a) / Number(b);
-  } else if (oper === "mod") {
-    result = Number(a) % Number(b);
-  } else {
-    alert("연산기호를 선택해주세요.");
-    frm.oper.focus();
+  if (Number(b) === 0 && (oper === "div" || oper === "mod")) {
+    alert("나누기나 나머지 연산은 0으로 실행할 수 없습니다.");
+    frm.b.focus();
     return false;
   }
+
+  switch (oper) {
+    case "sum":
+      result = Number(a) + Number(b);
+      break;
+    case "min":
+      result = Number(a) - Number(b);
+      break;
+    case "mul":
+      result = Number(a) * Number(b);
+      break;
+    case "div":
+      result = Number(a) / Number(b);
+      break;
+    case "mod":
+      result = Number(a) % Number(b);
+      break;
+    default:
+      alert("연산기호를 선택해주세요.");
+      frm.oper.focus();
+      return false;
+  }
+
+  // if (oper === "sum") {
+  //   result = Number(a) + Number(b);
+  // } else if (oper === "min") {
+  //   result = Number(a) - Number(b);
+  // } else if (oper === "mul") {
+  //   result = Number(a) * Number(b);
+  // } else if (oper === "div") {
+  //   result = Number(a) / Number(b);
+  // } else if (oper === "mod") {
+  //   result = Number(a) % Number(b);
+  // } else {
+  //   alert("연산기호를 선택해주세요.");
+  //   frm.oper.focus();
+  //   return false;
+  // }
   frm.result.value = result;
 
   // console.log(a);
