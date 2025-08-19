@@ -15,6 +15,43 @@ function onScore() {
   var stdMaths = [85, 75, 85];
   var stdTotal = [];
   var stdAvg = [];
-  var tbl = document.getElementById("stdTbl");
-  console.log(tbl);
+
+  // var tbl;
+  // tbl = document.getElementById("stdTbl");
+  // console.log(tbl);
+  // tbl = document.querySelector("#stdTbl");
+  // console.log(tbl);
+  // tbl = $("#stdTbl")[0];
+  // console.log(tbl);
+
+  // var table = document.getElementById("stdTbl");
+  // var tbody = document.getElementById("stdTbody");
+  // var html =
+  //   "<tr><td class="std-item">0</td><td>홍길동</td><td>75</td><td>78</td><td>82</td><td></td><td></td><td></td></tr>";
+  // tbody.innerHTML = html;
+
+  // var tbody = document.querySelector("#stdTbody");
+  // var tr = document.createElement("tr");
+  // var td = document.createElement("td");
+  // td.className = "std-item";
+  // td.innerText = stdNames[0];
+  // tr.appendChild(td);
+  // tbody.appendChild(tr);
+
+  // var $tbody = $("#stdTbody");
+  // console.log($tbody);
+
+  // $("#stdTbody").append("<tr><td>홍길동</td></tr>");
+
+  var tbody = document.querySelector("#stdTbody");
+  var tr = document.createElement("tr");
+
+  var td = document.createElement("td");
+  td.className = "std-item";
+  td.innerText = stdNames[0];
+  tr.appendChild(td);
+  tbody.appendChild(tr);
+
+  for () {}
+  console.log(stdNames.length);
 }
