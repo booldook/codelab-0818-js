@@ -7,9 +7,41 @@
     <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/js03.css" />
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/js03.js"></script>
   </head>
   <body>
-    <div class="containers"></div>
+    <div class="containers">
+      <div class="btn-wrap">
+        <button onclick="onScore();">결과</button>
+      </div>
+      <table class="std-tbl" id="stdTbl">
+        <!-- thead.std-thead>tr>th*7^^tbody.std-tbody>tr*4>td.std-item*7 -->
+        <thead class="std-thead">
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>총점</th>
+            <th>평균</th>
+            <th>석차</th>
+          </tr>
+        </thead>
+        <tbody class="std-tbody">
+          <tr>
+            <td class="std-item">0</td>
+            <td class="std-item">홍길동</td>
+            <td class="std-item">75</td>
+            <td class="std-item">25</td>
+            <td class="std-item">80</td>
+            <td class="std-item">256</td>
+            <td class="std-item">75</td>
+            <td class="std-item">1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
