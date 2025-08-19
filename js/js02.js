@@ -72,6 +72,7 @@ function calc() {
   var a = frm.a.value;
   var b = frm.b.value;
   var oper = frm.oper.value;
+  var result = 0;
 
   if (a === "") {
     alert("값1을 입력하세요.");
@@ -83,13 +84,25 @@ function calc() {
     frm.b.focus();
     return false;
   }
-  if (oper === "") {
+  if (oper === "sum") {
+    result = Number(a) + Number(b);
+  } else if (oper === "min") {
+    result = Number(a) - Number(b);
+  } else if (oper === "mul") {
+    result = Number(a) * Number(b);
+  } else if (oper === "div") {
+    result = Number(a) / Number(b);
+  } else if (oper === "mod") {
+    result = Number(a) % Number(b);
+  } else {
     alert("연산기호를 선택해주세요.");
     frm.oper.focus();
     return false;
   }
-  console.log(a);
-  console.log(b);
-  console.log(oper);
-  console.log(frm);
+  frm.result.value = result;
+
+  // console.log(a);
+  // console.log(b);
+  // console.log(oper);
+  // console.log(frm);
 }
