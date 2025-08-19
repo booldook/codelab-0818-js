@@ -75,7 +75,7 @@ function calc() {
   var a = frm.a.value;
   var b = frm.b.value;
   var oper = frm.oper.value;
-  var result = 0;
+  var result;
 
   if (a === "") {
     alert("값1을 입력하세요.");
