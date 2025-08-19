@@ -16,6 +16,15 @@ function onScore() {
   var stdTotal = [];
   var stdAvg = [];
 
+  var stdScores = [
+    [1, "홍길동", 95, 65, 100],
+    [2, "홍길순", 80, 55, 95],
+    [3, "홍길만", 85, 75, 85],
+  ];
+
+  console.log(stdScores);
+  console.log(stdScores[0].length);
+
   // var tbl;
   // tbl = document.getElementById("stdTbl");
   // console.log(tbl);
@@ -47,31 +56,56 @@ function onScore() {
   var tr;
   var td;
 
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < stdScores.length; i++) {
     tr = document.createElement("tr");
-    td = document.createElement("td");
-    td.className = "std-item";
-    td.innerText = i + 1;
-    tr.appendChild(td);
-    td = document.createElement("td");
-    td.className = "std-item";
-    td.innerText = stdNames[i];
-    tr.appendChild(td);
-    td = document.createElement("td");
-    td.className = "std-item";
-    td.innerText = stdKors[i];
-    tr.appendChild(td);
-    td = document.createElement("td");
-    td.className = "std-item";
-    td.innerText = stdEngs[i];
-    tr.appendChild(td);
-    td = document.createElement("td");
-    td.className = "std-item";
-    td.innerText = stdMaths[i];
-    tr.appendChild(td);
-    console.log(tr);
+    for (var j = 0; j < stdScores[i].length; j++) {
+      td = document.createElement("td");
+      td.innerText = stdScores[i][j];
+      tr.appendChild(td);
+    }
     tbody.appendChild(tr);
   }
 
-  console.log(stdNames.length);
+  // for (var i = 0; i < 3; i++) {
+  //   tr = document.createElement("tr");
+  //   td = document.createElement("td");
+  //   td.className = "std-item";
+  //   td.innerText = i + 1;
+  //   tr.appendChild(td);
+  //   td = document.createElement("td");
+  //   td.className = "std-item";
+  //   td.innerText = stdNames[i];
+  //   tr.appendChild(td);
+  //   td = document.createElement("td");
+  //   td.className = "std-item";
+  //   td.innerText = stdKors[i];
+  //   tr.appendChild(td);
+  //   td = document.createElement("td");
+  //   td.className = "std-item";
+  //   td.innerText = stdEngs[i];
+  //   tr.appendChild(td);
+  //   td = document.createElement("td");
+  //   td.className = "std-item";
+  //   td.innerText = stdMaths[i];
+  //   tr.appendChild(td);
+  //   console.log(tr);
+  //   tbody.appendChild(tr);
+  // }
+}
+
+function onGugudan() {
+  var txt = "";
+  // for(var i=0; i<9; i++) {}
+
+  for (var i = 2; i <= 9; i++) {
+    for (var j = 1; j <= 9; j++) {}
+  }
+
+  // txt = "2 x " + i + " = " + 2 * i; // 2 x 1 = 2
+  for (var i = 2; i <= 9; i++) {
+    for (var j = 1; j <= 9; j++) {
+      txt = `${i} x ${j} = ${i * j}`;
+      console.log(txt);
+    }
+  }
 }
