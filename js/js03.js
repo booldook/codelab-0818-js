@@ -44,14 +44,34 @@ function onScore() {
   // $("#stdTbody").append("<tr><td>홍길동</td></tr>");
 
   var tbody = document.querySelector("#stdTbody");
-  var tr = document.createElement("tr");
+  var tr;
+  var td;
 
-  var td = document.createElement("td");
-  td.className = "std-item";
-  td.innerText = stdNames[0];
-  tr.appendChild(td);
-  tbody.appendChild(tr);
+  for (var i = 0; i < 3; i++) {
+    tr = document.createElement("tr");
+    td = document.createElement("td");
+    td.className = "std-item";
+    td.innerText = i + 1;
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.className = "std-item";
+    td.innerText = stdNames[i];
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.className = "std-item";
+    td.innerText = stdKors[i];
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.className = "std-item";
+    td.innerText = stdEngs[i];
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.className = "std-item";
+    td.innerText = stdMaths[i];
+    tr.appendChild(td);
+    console.log(tr);
+    tbody.appendChild(tr);
+  }
 
-  for () {}
   console.log(stdNames.length);
 }
