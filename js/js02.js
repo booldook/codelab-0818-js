@@ -7,9 +7,9 @@
   - 참조타입: Array(배열), Object(객체), null(빈값), Set, Map, function ...
 */
 
-var a; //  a 라는 변수를 선언함.
-a = "ABC"; // a에 "ABC"문자열을 대입함.
-var a = "ABC"; // 축약
+// var a; //  a 라는 변수를 선언함.
+// a = "ABC"; // a에 "ABC"문자열을 대입함.
+// var a = "ABC"; // 축약
 
 // const b = "ABC";
 // b = "C"; // 선언과 값이 대입된 상수는 재대입이 안된다.
@@ -33,8 +33,8 @@ d[1] = 5;
 d[2] = 6;
 console.log(d, d2);
 
-var a = "A";
-var b = 2;
+// var a = "A";
+// var b = 2;
 var c = null;
 var d = [1, 2, 3, 4, 5, 6]; // 배열 Array
 var e = {}; // 객체 Object
@@ -65,3 +65,31 @@ var hoisting2 = function () {
 };
 
 console.clear();
+
+// 심플 계산기
+function calc() {
+  var frm = document.myForm;
+  var a = frm.a.value;
+  var b = frm.b.value;
+  var oper = frm.oper.value;
+
+  if (a === "") {
+    alert("값1을 입력하세요.");
+    frm.a.focus();
+    return false;
+  }
+  if (b === "") {
+    alert("값2을 입력하세요.");
+    frm.b.focus();
+    return false;
+  }
+  if (oper === "") {
+    alert("연산기호를 선택해주세요.");
+    frm.oper.focus();
+    return false;
+  }
+  console.log(a);
+  console.log(b);
+  console.log(oper);
+  console.log(frm);
+}
