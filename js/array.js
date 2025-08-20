@@ -129,3 +129,12 @@ console.log(numbers);
 console.log(numbers.reverse());
 
 console.log(numbers.indexOf(30) > -1);
+
+const arr10 = ["A", "B", "C"];
+arr10[arr10.length - 1];
+arr10.at(-1);
+console.clear();
+
+const str3 = "ABC";
+const arr11 = Array.from(arr10); // [].concat(arr10)
+console.log(arr11);
