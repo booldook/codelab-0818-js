@@ -93,18 +93,19 @@ const stdTotal = stdScores.map((std) => {
 });
 console.log(stdTotal);
 
-const stdTotalAvg = stdScores.map2((std) => {
+const stdTotalAvg = stdScores.map((std) => {
   const total = std.kor + std.eng + std.math;
-  const avg = total / 3;
-  return {
-    no: std.no,
-    name: std.name,
-    kor: std.kor,
-    eng: std.eng,
-    math: std.math,
-    total: total,
-    avg: Number(avg.toFixed(2)),
-  };
+  const avg = Number((total / 3).toFixed(2));
+  // return {
+  //   no: std.no,
+  //   name: std.name,
+  //   kor: std.kor,
+  //   eng: std.eng,
+  //   math: std.math,
+  //   total: total,
+  //   avg: Number(avg.toFixed(2)),
+  // };
+  return { ...std, total, avg };
 });
 console.log(stdTotalAvg);
 // console.clear();
@@ -133,7 +134,7 @@ console.log(numbers.indexOf(30) > -1);
 const arr10 = ["A", "B", "C"];
 arr10[arr10.length - 1];
 arr10.at(-1);
-console.clear();
+// console.clear();
 
 const str3 = "ABC";
 const arr11 = Array.from(arr10); // [].concat(arr10)

@@ -47,3 +47,20 @@ console.clear();
 const arr2 = new Array(); // []
 const obj = { no: 3, name: "홍길만", kor: 85, eng: 75, math: 85 }; // {}
 console.log(arr2, obj);
+
+/**
+ * 널리쉬연산자(??), ||
+ * 펼침연산자(...)
+ * 옵셔널체이닝(?.)
+ * 구조분해할당()
+ * (Promise: ES6, async/await: ES7)
+ */
+// false 판정을 받는 값
+Boolean("");
+Boolean(0);
+Boolean(undefined);
+Boolean(null);
+const arr11 = ["F", "G"];
+const arr12 = arr.concat(arr11);
+const arr13 = [...arr, ...arr11];
+const arr14 = [...arr];
