@@ -47,7 +47,11 @@ console.log(str2.split(""));
 console.log(str2.split()); // 통채로
 console.clear();
 
-// filter, map, reduce, some, every
+// filter: [],
+// map: [],
+// some: boolean, -> 데이터가 콜백조건에 하나라도 부합하면 true
+// every: boolean, -> 모든 데이터가 콜백조건에 부합해야 true
+// reduce: any -> 단 하나의 결과값만 리턴
 const stdScores = [
   { no: 1, name: "홍길동", kor: 95, eng: 80, math: 85 },
   { no: 2, name: "홍길순", kor: 65, eng: 55, math: 75 },
@@ -103,3 +107,25 @@ const stdTotalAvg = stdScores.map2((std) => {
   };
 });
 console.log(stdTotalAvg);
+// console.clear();
+const scorePass = stdScores.every((std) => std.eng >= 60);
+console.log(scorePass);
+const scoreEven = stdScores.some((std) => std.eng >= 60);
+console.log(scoreEven);
+
+const totalScore = stdScores.reduce(
+  (sum, student) => sum + student.kor + student.eng + student.math,
+  0
+);
+console.log(totalScore);
+
+// reverse, sort
+const numbers = [1, 5, 2, 9, 11, 8, 4];
+const sortNumbers = [].concat(numbers.sort((a, b) => a - b));
+const sortNumbers2 = [].concat(numbers.sort((a, b) => b - a));
+console.log(sortNumbers);
+console.log(sortNumbers2);
+console.log(numbers);
+console.log(numbers.reverse());
+
+console.log(numbers.indexOf(30) > -1);
