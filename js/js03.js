@@ -51,7 +51,7 @@ function onScore() {
   // console.log($tbody);
 
   // $("#stdTbody").append("<tr><td>홍길동</td></tr>");
-
+  // $("#stdTbody").append("<tr>").append("<td>")
   //jQuery문법 예제
   // var $tbody = $("#stdTbody").append("<tr>");
   // var $tr = $("<tr>").appendTo($("#stdTbody"));

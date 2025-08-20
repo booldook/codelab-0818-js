@@ -34,9 +34,22 @@
 // console.log(stdScores.stdName);
 
 var stdScores = [
-  { name: "홍길동", kor: 95, eng: 80, math: 85 },
-  { name: "홍길순", kor: 65, eng: 55, math: 75 },
-  { name: "홍길만", kor: 85, eng: 75, math: 85 },
+  { no: 1, name: "홍길동", kor: 95, eng: 80, math: 85 },
+  { no: 2, name: "홍길순", kor: 65, eng: 55, math: 75 },
+  { no: 3, name: "홍길만", kor: 85, eng: 75, math: 85 },
 ];
 console.log(stdScores);
 console.log(stdScores[0].name);
+
+// a += b => a = a + b
+function onScore() {
+  for (var i = 0; i < stdScores.length; i++) {
+    var tr = document.createElement("tr");
+    tr.innerHTML = `<td class="std-item">${stdScores[i].no}</td>`;
+    tr.innerHTML += `<td class="std-item">${stdScores[i].name}</td>`;
+    tr.innerHTML += `<td class="std-item">${stdScores[i].kor}</td>`;
+    tr.innerHTML += `<td class="std-item">${stdScores[i].eng}</td>`;
+    tr.innerHTML += `<td class="std-item">${stdScores[i].math}</td>`;
+    document.querySelector("#stdTbody").appendChild(tr);
+  }
+}
