@@ -1,3 +1,11 @@
+Array.prototype.map2 = function (fn) {
+  const arr = [];
+  for (var i = 0; i < this.length; i++) {
+    arr.push(fn(this[i]));
+  }
+  return arr;
+};
+
 var arr = [];
 arr.push("B");
 arr.push("C");
@@ -62,10 +70,36 @@ function filter(items, fn) {
   }
   return returnItems;
 }
-
 const result = filter(stdScores, function (student) {
   return student.kor >= 80;
 });
-
 const overKor80A = stdScores.filter((student) => student.kor >= 80);
 console.log(overKor80A);
+console.clear();
+
+// map
+// const stdKor = stdScores.map((std) => {
+//   return { kor: std.kor };
+// });
+const stdKor = stdScores.map((std) => ({ kor: std.kor }));
+console.log(stdKor);
+
+const stdTotal = stdScores.map((std) => {
+  return std.kor + std.eng + std.math;
+});
+console.log(stdTotal);
+
+const stdTotalAvg = stdScores.map2((std) => {
+  const total = std.kor + std.eng + std.math;
+  const avg = total / 3;
+  return {
+    no: std.no,
+    name: std.name,
+    kor: std.kor,
+    eng: std.eng,
+    math: std.math,
+    total: total,
+    avg: Number(avg.toFixed(2)),
+  };
+});
+console.log(stdTotalAvg);
