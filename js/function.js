@@ -37,3 +37,19 @@ function helloFn2() {
 }
 
 console.log(helloFn2()("booldook"));
+
+// ES6 함수표현식 (Arrow function)
+function fn() {}
+const fn2 = function () {};
+const fn3 = () => {};
+
+const fn22 = function (a) {
+  return a * a;
+};
+const fn33 = (a) => {
+  return a * a;
+};
+const fn33_1 = (a) => {
+  return a * a;
+};
+const fn33_2 = (a) => a * a;

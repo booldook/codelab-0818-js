@@ -39,3 +39,33 @@ console.log(str2.split(""));
 console.log(str2.split()); // 통채로
 console.clear();
 
+// filter, map, reduce, some, every
+const stdScores = [
+  { no: 1, name: "홍길동", kor: 95, eng: 80, math: 85 },
+  { no: 2, name: "홍길순", kor: 65, eng: 55, math: 75 },
+  { no: 3, name: "홍길만", kor: 85, eng: 75, math: 85 },
+];
+
+// Array.filter()
+const overKor80 = stdScores.filter(function (v) {
+  return v.kor >= 80;
+});
+console.log(overKor80);
+
+// Array.filter함수는 이렇게 생겼을 것으로 추정됨
+function filter(items, fn) {
+  const returnItems = [];
+  for (var i = 0; i < items.length; i++) {
+    if (fn(items[i])) {
+      returnItems.push(items[i]);
+    }
+  }
+  return returnItems;
+}
+
+const result = filter(stdScores, function (student) {
+  return student.kor >= 80;
+});
+
+const overKor80A = stdScores.filter((student) => student.kor >= 80);
+console.log(overKor80A);
