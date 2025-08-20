@@ -52,20 +52,37 @@ function onScore() {
 
   // $("#stdTbody").append("<tr><td>홍길동</td></tr>");
 
-  var tbody = document.querySelector("#stdTbody");
-  var tr;
-  var td;
-
+  //jQuery문법 예제
+  // var $tbody = $("#stdTbody").append("<tr>");
+  // var $tr = $("<tr>").appendTo($("#stdTbody"));
+  // var $td = $("<td>").appendTo($tr);
+  // console.log($tr, $td);
+  // var $tr = $("<tr>").appendTo($("#stdTbody")).append("<td>");
+  // console.log($tr);
   for (var i = 0; i < stdScores.length; i++) {
-    tr = document.createElement("tr");
+    var $tr = $("<tr>").appendTo($("#stdTbody"));
     for (var j = 0; j < stdScores[i].length; j++) {
-      td = document.createElement("td");
-      td.innerText = stdScores[i][j];
-      tr.appendChild(td);
+      // $tr.append("<td>" + stdScores[i][j] + "</td>");
+      $tr.append(`<td>${stdScores[i][j]}</td>`);
     }
-    tbody.appendChild(tr);
+    $("#stdTbody").append($tr);
   }
 
+  // ES문법 예제
+  // var tbody = document.querySelector("#stdTbody");
+  // var tr;
+  // var td;
+  // for (var i = 0; i < stdScores.length; i++) {
+  //   tr = document.createElement("tr");
+  //   for (var j = 0; j < stdScores[i].length; j++) {
+  //     td = document.createElement("td");
+  //     td.innerText = stdScores[i][j];
+  //     tr.appendChild(td);
+  //   }
+  //   tbody.appendChild(tr);
+  // }
+
+  // ES5 문법 예제
   // for (var i = 0; i < 3; i++) {
   //   tr = document.createElement("tr");
   //   td = document.createElement("td");
