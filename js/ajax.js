@@ -22,7 +22,23 @@ function getData() {
     .then((data) => console.log(data))
     .catch((err) => console.log(err));
 }
-getData();
+// getData();
+
+function getData2() {
+  $.ajax({
+    url: "https://jsonplaceholder.typicode.com/posts",
+    success: (data) => console.log(data),
+  });
+}
+// getData2();
+
+function getData3() {
+  axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
+    const { data, headers, config } = response;
+    console.log(data);
+  });
+}
+// getData3();
 
 // function cb() {
 //   console.log("cb");
@@ -30,3 +46,16 @@ getData();
 // setTimeout(cb, 5000);
 // fn1();
 // fn2();
+
+function myPromise(url) {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(url)
+      .then((res) => resolve(res.data))
+      .catch((err) => reject(err));
+  });
+}
+
+myPromise("https://jsonplaceholder.typicode.com/post")
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
