@@ -43,13 +43,14 @@ console.log(stdScores[0].name);
 
 // a += b => a = a + b
 function onScore() {
-  for (var i = 0; i < stdScores.length; i++) {
-    var tr = document.createElement("tr");
-    tr.innerHTML = `<td class="std-item">${stdScores[i].no}</td>`;
-    tr.innerHTML += `<td class="std-item">${stdScores[i].name}</td>`;
-    tr.innerHTML += `<td class="std-item">${stdScores[i].kor}</td>`;
-    tr.innerHTML += `<td class="std-item">${stdScores[i].eng}</td>`;
-    tr.innerHTML += `<td class="std-item">${stdScores[i].math}</td>`;
+  for (let i = 0; i < stdScores.length; i++) {
+    let { no, name, kor, eng, math } = stdScores[i]
+    let tr = document.createElement("tr");
+    tr.innerHTML = `<td class="std-item">${no}</td>`;
+    tr.innerHTML += `<td class="std-item">${name}</td>`;
+    tr.innerHTML += `<td class="std-item">${kor}</td>`;
+    tr.innerHTML += `<td class="std-item">${eng}</td>`;
+    tr.innerHTML += `<td class="std-item">${math}</td>`;
     document.querySelector("#stdTbody").appendChild(tr);
   }
 }
