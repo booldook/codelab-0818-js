@@ -55,7 +55,14 @@ function myPromise(url) {
       .catch((err) => reject(err));
   });
 }
+// myPromise("https://jsonplaceholder.typicode.com/posts")
+//   .then((result) => console.log(result))
+//   .catch((err) => console.log(err));
 
-myPromise("https://jsonplaceholder.typicode.com/post")
-  .then((result) => console.log(result))
-  .catch((err) => console.log(err));
+async function getData4() {
+  const { data } = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts"
+  );
+  console.log(data);
+}
+getData4();
