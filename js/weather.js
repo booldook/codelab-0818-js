@@ -33,7 +33,13 @@ async function init() {
   console.log(weather);
 }
 
-window.addEventListener("load", init);
+// function init2() {
+//   getCoords().then(async ({ lat, lon }) => {
+//     console.log(await getWeather(lat, lon));
+//   });
+// }
+
+window.addEventListener("load", init2);
 
 // QueryString(params)
 // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
