@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today's Weather</title>
+  </head>
+  <body>
+    <!-- .conainers>.title-container>h1.title-wrapper^.main-container>.info-wrapper>.title-wrap+.content-wrap^.map-wrapper>.title-wrap+.content-wrap -->
+    <div class="conainers">
+      <div class="title-container">
+        <h1 class="title-wrapper">Today's Weather</h1>
+      </div>
+      <div class="main-container">
+        <div class="info-wrapper">
+          <div class="title-wrap">현재 날씨</div>
+          <div class="content-wrap">
+            <div class="icon-wp">
+              <img src="" alt="날씨아이콘" />
+            </div>
+            <div class="temp-wp"><span class="main-temp">32</span>℃</div>
+            <ul class="info-wp">
+              <li class="info">
+                <div class="title">최고/최저기온</div>
+                <div class="content">
+                  <span class="max-temp">32</span>℃
+                  <span> / </span>
+                  <span class="min-temp">28</span>℃
+                </div>
+              </li>
+              <li class="info">
+                <div class="title">습도</div>
+                <div class="content"><span class="humedity">32</span>%</div>
+              </li>
+              <li class="info">
+                <div class="title">날씨</div>
+                <div class="content">
+                  <span class="description">고온 다습한 날씨</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="map-wrapper">
+          <div class="title-wrap">전국 날씨</div>
+          <div class="content-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

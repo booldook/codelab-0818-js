@@ -54,3 +54,14 @@ alert, confirm, prompt등 window객체가 가지고 있는 함수를 내장함�
 ### 언어
   - 변수, 함수, 제어(if, switch), 반복(for, for~in, for~of, while, do~while)
   - for(초기값(변수=값); 조건; 증감) {반복할 내용}
+
+.containers
+    .title-container
+      h1.title-wrapper
+    .main-container
+      .info-wrapper
+        .title-wrap
+        .content-wrap
+      .map-wrapper
+        .title-wrap
+        .content-wrap 
