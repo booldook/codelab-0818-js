@@ -92,9 +92,19 @@ function initMap() {
   const map = new kakao.maps.Map(mapEl, mapOption);
 
   weathers.allData.forEach((city) => {
+    console.log(city.weather?.main);
+    const { temp } = city.weather?.main;
+    const { icon } = city.weather?.weather?.[0]?.icon;
     const position = new kakao.maps.LatLng(city.lat, city.lon);
     const marker = new kakao.maps.Marker({ position });
+    var overlay = new kakao.maps.CustomOverlay({
+      position,
+      content: getOverlay(icon, city.name, temp),
+      xAnchor: 0.3,
+      yAnchor: 0.91,
+    });
     marker.setMap(map);
+    overlay.setMap(map);
   });
 }
 
@@ -103,12 +113,15 @@ async function init() {
   weathers.myData = await getWeather(lat, lon);
   renderInfo();
 
-  weathers.allData.forEach(async (item) => {
-    item.weather = await getWeather(item.lat, item.lon);
-  });
-  console.log(weathers);
-
+  const pms = weathers.allData.map((item) => getWeather(item.lat, item.lon));
+  const values = await Promise.all(pms);
+  weathers.allData.forEach((city, idx) => (city.weather = values[idx]));
   initMap();
+  // for (const item of weathers.allData) {
+  //   item.weather = await getWeather(item.lat, item.lon);
+  // }
+  // console.log(weathers);
+  // initMap();
 }
 
 window.addEventListener("load", init);
