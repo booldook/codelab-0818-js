@@ -9,7 +9,6 @@ function sum(a, b, c, d, e, f) {
     });
   });
 }
-
 async function sum2(a, b, c, d, e, f) {
   let r1 = await asyncSum(a, b);
   let r2 = await asyncSum(r1, c);
