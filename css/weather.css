@@ -4,6 +4,7 @@
   margin: 0 auto;
 }
 .containers > .title-container {
+  padding: 1em 0 0.5em 0;
 }
 .containers > .main-container {
   display: flex;
@@ -12,12 +13,23 @@
 
 /* 타이틀바 */
 .title-container .title-wrapper {
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+}
+.title-container .sun-icon {
+  width: 1.5em;
+  margin-right: 0.5em;
 }
 
 /* 본문 */
 .main-container > .wrapper {
   width: 50%;
   border: 10px solid red;
+}
+.main-container > .wrapper > .title-wrap {
+  font-size: 1.5em;
+  padding: 0.5em 0;
 }
 
 /* 반응형 */

@@ -1,5 +1,6 @@
 const apiKey = "d965b9b0eacc39a576dc0027920741f8";
 const reqUrl = "https://api.openweathermap.org/data/2.5/weather";
+const iconUrl = "https://openweathermap.org/img/wn/10d@2x.png";
 const weathers = {
   myData: {},
   allData: [
@@ -14,6 +15,9 @@ const weathers = {
     { city: "속초", lat: 38.204543, lon: 128.591835, weather: {} },
   ],
 };
+function getIcon(code, lg = false) {
+  return `https://openweathermap.org/img/wn/${code}${lg ? "@2x" : ""}.png`;
+}
 
 function getCoords() {
   return new Promise((resolve) => {
