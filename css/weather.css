@@ -77,11 +77,11 @@
   border: 1px solid red;
 }
 .map-overlay-wrapper {
-  position: absolute;
   background-color: #fff;
   border-radius: 6px;
   border: 1px solid var(--text-e);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transform: translate(-8px, -136%);
 }
 .map-overlay-wrapper > .inner-wrap {
   display: flex;
