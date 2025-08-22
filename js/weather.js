@@ -48,19 +48,17 @@ async function getWeather(lat, lon) {
 }
 
 function renderInfo() {
-  const temp = weathers.myData?.main?.temp || "-";
-  const max = weathers.myData?.main?.temp_max || "-";
-  const min = weathers.myData?.main?.temp_min || "-";
-  const humidity = weathers.myData?.main?.humidity || "-";
-  const description = weathers.myData?.weather?.[0]?.description || "-";
-  const icon = getIcon(weathers.myData?.weather?.[0]?.icon, true);
+  const { temp, feels_like, temp_max, temp_min, humidity } =
+    weathers.myData?.main || {};
+  const { description, icon } = weathers.myData?.weather?.[0] || {};
   const info = document.querySelector(".info-wrapper");
-  info.querySelector(".main-temp").innerText = temp;
-  info.querySelector(".max-temp").innerText = max;
-  info.querySelector(".min-temp").innerText = min;
-  info.querySelector(".humedity").innerText = humidity;
-  info.querySelector(".description").innerText = description;
-  info.querySelector(".weather-icon").src = icon;
+  info.querySelector(".main-temp").innerText = temp || "-";
+  info.querySelector(".feels-temp").innerText = feels_like || "-";
+  info.querySelector(".max-temp").innerText = temp_max || "-";
+  info.querySelector(".min-temp").innerText = temp_min || "-";
+  info.querySelector(".humedity").innerText = humidity || "-";
+  info.querySelector(".description").innerText = description || "-";
+  info.querySelector(".weather-icon").src = getIcon(icon, true);
 }
 
 async function init() {

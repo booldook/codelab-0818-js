@@ -9,6 +9,8 @@
 .containers > .main-container {
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid var(--text-c);
+  padding: 1.5em 0;
 }
 
 /* 타이틀바 */
@@ -25,11 +27,48 @@
 /* 본문 */
 .main-container > .wrapper {
   width: 50%;
-  border: 10px solid red;
+  padding: 0 1.5em;
 }
 .main-container > .wrapper > .title-wrap {
   font-size: 1.5em;
   padding: 0.5em 0;
+}
+.main-container > .info-wrapper > .content-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .main-container > .info-wrapper */
+.info-wrapper > .content-wrap > .icon-wp {
+  width: 50%;
+  text-align: center;
+}
+.info-wrapper > .content-wrap > .temp-wp {
+  width: 50%;
+  margin-bottom: 2em;
+}
+.info-wrapper > .content-wrap > .temp-wp .main-temp {
+  font-size: 2.5em;
+}
+.info-wrapper > .content-wrap > .temp-wp .main-temp {
+  font-size: 2.5em;
+}
+.info-wrapper > .content-wrap > .temp-wp .feels-title {
+  color: var(--text-a);
+}
+.info-wrapper > .content-wrap > .temp-wp .feels-temp {
+  font-size: 1.5em;
+}
+.info-wrapper > .content-wrap > .info-wp {
+  width: 100%;
+}
+.info-wrapper > .content-wrap > .info-wp > .info {
+  width: 100%;
+  display: flex;
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--text-e);
+}
+.info-wrapper > .content-wrap > .info-wp > .info > .title {
+  min-width: 120px;
 }
 
 /* 반응형 */
