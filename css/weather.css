@@ -1,0 +1,28 @@
+.containers {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.containers > .title-container {
+}
+.containers > .main-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 타이틀바 */
+.title-container .title-wrapper {
+}
+
+/* 본문 */
+.main-container > .wrapper {
+  width: 50%;
+  border: 10px solid red;
+}
+
+/* 반응형 */
+@media screen and (max-width: 700px) {
+  .main-container > .wrapper {
+    width: 100%;
+  }
+}
