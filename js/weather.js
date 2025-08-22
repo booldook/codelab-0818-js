@@ -1,18 +1,19 @@
 const apiKey = "d965b9b0eacc39a576dc0027920741f8";
+const kakaoKey = "5b1667d796898f390eff225f998bf203";
 const reqUrl = "https://api.openweathermap.org/data/2.5/weather";
 const iconUrl = "https://openweathermap.org/img/wn/10d@2x.png";
 const weathers = {
   myData: {},
   allData: [
-    { city: "서울", lat: 37.566535, lon: 126.977969, weather: {} },
-    { city: "부산", lat: 35.179554, lon: 129.075642, weather: {} },
-    { city: "제주", lat: 33.489011, lon: 126.498302, weather: {} },
-    { city: "원주", lat: 37.342219, lon: 127.919135, weather: {} },
-    { city: "대구", lat: 35.871435, lon: 128.601445, weather: {} },
-    { city: "세종", lat: 36.480132, lon: 127.289021, weather: {} },
-    { city: "광주", lat: 35.159545, lon: 126.852601, weather: {} },
-    { city: "독도", lat: 37.241411, lon: 131.870155, weather: {} },
-    { city: "속초", lat: 38.204543, lon: 128.591835, weather: {} },
+    { name: "서울", lat: 37.566535, lon: 126.977969, weather: {} },
+    { name: "부산", lat: 35.179554, lon: 129.075642, weather: {} },
+    { name: "제주", lat: 33.489011, lon: 126.498302, weather: {} },
+    { name: "원주", lat: 37.342219, lon: 127.919135, weather: {} },
+    { name: "대구", lat: 35.871435, lon: 128.601445, weather: {} },
+    { name: "세종", lat: 36.480132, lon: 127.289021, weather: {} },
+    { name: "광주", lat: 35.159545, lon: 126.852601, weather: {} },
+    { name: "독도", lat: 37.241411, lon: 131.870155, weather: {} },
+    { name: "속초", lat: 38.204543, lon: 128.591835, weather: {} },
   ],
 };
 function getIcon(code, lg = false) {
@@ -61,6 +62,25 @@ function renderInfo() {
   info.querySelector(".weather-icon").src = getIcon(icon, true);
 }
 
+function initMap() {
+  const mapEl = document.getElementById("map");
+  const mapOption = {
+    center: new kakao.maps.LatLng(35.871435, 128.601445),
+    level: 13,
+    draggable: false,
+    scrollwheel: false,
+    disableDoubleClick: true,
+    disableDoubleClickZoom: true,
+  };
+  const map = new kakao.maps.Map(mapEl, mapOption);
+
+  weathers.allData.forEach((city) => {
+    const position = new kakao.maps.LatLng(city.lat, city.lon);
+    const marker = new kakao.maps.Marker({ position });
+    marker.setMap(map);
+  });
+}
+
 async function init() {
   const { lat, lon } = await getCoords(); // 나의 위치
   weathers.myData = await getWeather(lat, lon);
@@ -70,6 +90,8 @@ async function init() {
     item.weather = await getWeather(item.lat, item.lon);
   });
   console.log(weathers);
+
+  initMap();
 }
 
 window.addEventListener("load", init);
