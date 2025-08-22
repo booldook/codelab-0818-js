@@ -16,7 +16,9 @@ const weathers = {
   ],
 };
 function getIcon(code, lg = false) {
-  return `https://openweathermap.org/img/wn/${code}${lg ? "@2x" : ""}.png`;
+  return code
+    ? `https://openweathermap.org/img/wn/${code}${lg ? "@2x" : ""}.png`
+    : "-";
 }
 
 function getCoords() {
@@ -45,16 +47,34 @@ async function getWeather(lat, lon) {
   return data;
 }
 
+function renderInfo() {
+  const temp = weathers.myData?.main?.temp || "-";
+  const max = weathers.myData?.main?.temp_max || "-";
+  const min = weathers.myData?.main?.temp_min || "-";
+  const humidity = weathers.myData?.main?.humidity || "-";
+  const description = weathers.myData?.weather?.[0]?.description || "-";
+  const icon = getIcon(weathers.myData?.weather?.[0]?.icon, true);
+  const info = document.querySelector(".info-wrapper");
+  info.querySelector(".main-temp").innerText = temp;
+  info.querySelector(".max-temp").innerText = max;
+  info.querySelector(".min-temp").innerText = min;
+  info.querySelector(".humedity").innerText = humidity;
+  info.querySelector(".description").innerText = description;
+  info.querySelector(".weather-icon").src = icon;
+}
+
 async function init() {
   const { lat, lon } = await getCoords(); // 나의 위치
   weathers.myData = await getWeather(lat, lon);
+  renderInfo();
+
   weathers.allData.forEach(async (item) => {
     item.weather = await getWeather(item.lat, item.lon);
   });
   console.log(weathers);
 }
 
-init();
+window.addEventListener("load", init);
 
 // ******* 설명 *******
 // QueryString(params)
