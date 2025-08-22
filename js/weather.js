@@ -1,16 +1,19 @@
 const apiKey = "d965b9b0eacc39a576dc0027920741f8";
 const reqUrl = "https://api.openweathermap.org/data/2.5/weather";
-const locations = [
-  { name: "서울", latitude: 37.566535, longitude: 126.977969 },
-  { name: "부산", latitude: 35.179554, longitude: 129.075642 },
-  { name: "제주", latitude: 33.489011, longitude: 126.498302 },
-  { name: "원주", latitude: 37.342219, longitude: 127.919135 },
-  { name: "대구", latitude: 35.871435, longitude: 128.601445 },
-  { name: "세종", latitude: 36.480132, longitude: 127.289021 },
-  { name: "광주", latitude: 35.159545, longitude: 126.852601 },
-  { name: "독도", latitude: 37.241411, longitude: 131.870155 },
-  { name: "속초", latitude: 38.204543, longitude: 128.591835 },
-];
+const weathers = {
+  myData: {},
+  allData: [
+    { city: "서울", lat: 37.566535, lon: 126.977969, weather: {} },
+    { city: "부산", lat: 35.179554, lon: 129.075642, weather: {} },
+    { city: "제주", lat: 33.489011, lon: 126.498302, weather: {} },
+    { city: "원주", lat: 37.342219, lon: 127.919135, weather: {} },
+    { city: "대구", lat: 35.871435, lon: 128.601445, weather: {} },
+    { city: "세종", lat: 36.480132, lon: 127.289021, weather: {} },
+    { city: "광주", lat: 35.159545, lon: 126.852601, weather: {} },
+    { city: "독도", lat: 37.241411, lon: 131.870155, weather: {} },
+    { city: "속초", lat: 38.204543, lon: 128.591835, weather: {} },
+  ],
+};
 
 function getCoords() {
   return new Promise((resolve) => {
@@ -39,10 +42,19 @@ async function getWeather(lat, lon) {
 }
 
 async function init() {
-  const { lat, lon } = await getCoords();
-  const weather = await getWeather(lat, lon);
-  console.log(weather);
+  const { lat, lon } = await getCoords(); // 나의 위치
+  weathers.myData = await getWeather(lat, lon);
+  weathers.allData.forEach(async (item) => {
+    item.weather = await getWeather(item.lat, item.lon);
+  });
+  console.log(weathers);
 }
+
+init();
+
+// ******* 설명 *******
+// QueryString(params)
+// https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
 // function init2() {
 //   getCoords().then(async ({ lat, lon }) => {
@@ -50,8 +62,4 @@ async function init() {
 //   });
 // }
 
-window.addEventListener("load", init);
-console.log("hello");
-
-// QueryString(params)
-// https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+// window.addEventListener("load", init);
