@@ -39,7 +39,8 @@ async function init() {
 //   });
 // }
 
-window.addEventListener("load", init2);
+window.addEventListener("load", init);
+console.log("hello");
 
 // QueryString(params)
 // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
