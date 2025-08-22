@@ -30,7 +30,6 @@
   padding: 0 1.5em;
 }
 .main-container > .wrapper.map-wrapper {
-  /* min-width: 550px; */
   flex-shrink: 0;
 }
 .main-container > .wrapper > .title-wrap {
