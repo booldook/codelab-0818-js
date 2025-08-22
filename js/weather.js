@@ -21,7 +21,24 @@ function getIcon(code, lg = false) {
     ? `https://openweathermap.org/img/wn/${code}${lg ? "@2x" : ""}.png`
     : "-";
 }
-
+function getOverlay(icon, name, temp) {
+  return `
+  <div class="map-overlay-wrapper">
+    <div class="inner-wrap">
+      <div class="icon-wp">
+        <img
+          src="${getIcon(icon)}"
+          alt="지도날씨아이콘"
+          class="map-icon"
+        />
+      </div>
+      <div class="temp-wp">
+        <span class="city-name">${name}</span>
+        <span class="city-temp">${temp}</span>℃
+      </div>
+    </div>
+  </div>`;
+}
 function getCoords() {
   return new Promise((resolve) => {
     let defaultLat = 37.566535;
