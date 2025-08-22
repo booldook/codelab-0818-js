@@ -5,15 +5,33 @@ const iconUrl = "https://openweathermap.org/img/wn/10d@2x.png";
 const weathers = {
   myData: {},
   allData: [
-    { name: "서울", lat: 37.566535, lon: 126.977969, weather: {} },
-    { name: "부산", lat: 35.179554, lon: 129.075642, weather: {} },
-    { name: "제주", lat: 33.489011, lon: 126.498302, weather: {} },
-    { name: "원주", lat: 37.342219, lon: 127.919135, weather: {} },
-    { name: "대구", lat: 35.871435, lon: 128.601445, weather: {} },
-    { name: "세종", lat: 36.480132, lon: 127.289021, weather: {} },
-    { name: "광주", lat: 35.159545, lon: 126.852601, weather: {} },
-    { name: "독도", lat: 37.241411, lon: 131.870155, weather: {} },
-    { name: "속초", lat: 38.204543, lon: 128.591835, weather: {} },
+    {
+      name: "서울",
+      lat: 37.566535,
+      lon: 126.977969,
+      weather: {},
+      clsNm: "seoul",
+    },
+    { name: "부산", lat: 35.179554, lon: 129.075642, weather: {}, clsNm: "" },
+    { name: "제주", lat: 33.489011, lon: 126.498302, weather: {}, clsNm: "" },
+    { name: "원주", lat: 37.342219, lon: 127.919135, weather: {}, clsNm: "" },
+    { name: "대구", lat: 35.871435, lon: 128.601445, weather: {}, clsNm: "" },
+    { name: "세종", lat: 36.480132, lon: 127.289021, weather: {}, clsNm: "" },
+    { name: "광주", lat: 35.159545, lon: 126.852601, weather: {}, clsNm: "" },
+    {
+      name: "독도",
+      lat: 37.241411,
+      lon: 131.870155,
+      weather: {},
+      clsNm: "dokdo",
+    },
+    {
+      name: "속초",
+      lat: 38.204543,
+      lon: 128.591835,
+      weather: {},
+      clsNm: "sokcho",
+    },
   ],
 };
 function getIcon(code, lg = false) {
@@ -21,9 +39,9 @@ function getIcon(code, lg = false) {
     ? `https://openweathermap.org/img/wn/${code}${lg ? "@2x" : ""}.png`
     : "-";
 }
-function getOverlay(icon, name, temp) {
+function getOverlay(icon, name, temp, clsNm) {
   return `
-  <div class="map-overlay-wrapper">
+  <div class="map-overlay-wrapper ${clsNm}">
     <div class="inner-wrap">
       <div class="icon-wp">
         <img
@@ -92,7 +110,7 @@ async function initMap() {
 
   const mapEl = document.getElementById("map");
   const mapOption = {
-    center: new kakao.maps.LatLng(35.871435, 128.601445),
+    center: new kakao.maps.LatLng(35.871435, 128.771445),
     level: 13,
     draggable: false,
     scrollwheel: false,
@@ -108,7 +126,7 @@ async function initMap() {
     const marker = new kakao.maps.Marker({ position });
     var overlay = new kakao.maps.CustomOverlay({
       position,
-      content: getOverlay(icon, city.name, temp),
+      content: getOverlay(icon, city.name, temp, city.clsNm),
       xAnchor: 0,
       yAnchor: 0,
     });
